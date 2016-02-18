@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Actividade04</string>
+    <string name="tv_percent">%</string>
+    <string name="tv_euro">€</string>
+    <string name="tv_refeicao">Refeicao:</string>
+    <string name="hint_refeicao">Preco total da refeicao</string>
+    <string name="tv_bebidas">Bebidas:</string>
+    <string name="hint_bebidas">Preco total das bebidas</string>
+    <string name="tv_taxaiva">IVA:</string>
+    <string name="hint_taxaiva">23</string>
+    <string name="tv_numpessoas">Pessoas:</string>
+    <string name="hint_numpessoas">Numero de pessoas</string>
+    <string name="btn_calcular">Calcular</string>
+    <string name="tv_total">Total:</string>
+    <string name="tv_totalporpessoa">Por pessoa:</string>
+</resources>

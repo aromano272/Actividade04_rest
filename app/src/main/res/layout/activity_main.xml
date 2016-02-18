@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.aromano.actividade04.MainActivity">
+
+    <TextView
+        android:id="@+id/tv_refeicao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_refeicao" />
+
+    <EditText
+        android:id="@+id/et_refeicao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/tv_refeicao"
+        android:hint="@string/hint_refeicao" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/et_refeicao"
+        android:layout_toRightOf="@+id/et_refeicao"
+        android:textSize="20dp"
+        android:text="@string/tv_euro"/>
+
+    <TextView
+        android:id="@+id/tv_bebidas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_refeicao"
+        android:text="@string/tv_bebidas" />
+
+    <EditText
+        android:id="@+id/et_bebidas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_bebidas"
+        android:inputType="text"
+        android:hint="@string/hint_bebidas" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/et_bebidas"
+        android:layout_toRightOf="@+id/et_bebidas"
+        android:textSize="20dp"
+        android:text="@string/tv_euro"/>
+
+
+    <TextView
+        android:id="@+id/tv_taxaiva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_bebidas"
+        android:text="@string/tv_taxaiva" />
+
+    <EditText
+        android:id="@+id/et_taxaiva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_taxaiva"
+        android:inputType="text"
+        android:hint="@string/hint_taxaiva" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/et_taxaiva"
+        android:layout_toRightOf="@+id/et_taxaiva"
+        android:textSize="20dp"
+        android:text="@string/tv_percent"/>
+
+    <TextView
+        android:id="@+id/tv_numpessoas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_taxaiva"
+        android:text="@string/tv_numpessoas" />
+
+    <EditText
+        android:id="@+id/et_numpessoas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_numpessoas"
+        android:inputType="text"
+        android:hint="@string/hint_numpessoas" />
+
+    <Button
+        android:id="@+id/btn_calcular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_numpessoas"
+        android:text="@string/btn_calcular"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_below="@id/btn_calcular"
+        android:text="@string/tv_total" />
+
+    <EditText
+        android:id="@+id/et_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_alignBaseline="@+id/tv_total"
+        android:layout_toRightOf="@+id/tv_total"
+        android:editable="false"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/tv_totalporpessoa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_below="@id/et_total"
+        android:text="@string/tv_totalporpessoa" />
+
+    <EditText
+        android:id="@+id/et_totalporpessoa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_alignBaseline="@+id/tv_totalporpessoa"
+        android:layout_toRightOf="@+id/tv_totalporpessoa"
+        android:editable="false"
+        android:inputType="text" />
+
+</RelativeLayout>
