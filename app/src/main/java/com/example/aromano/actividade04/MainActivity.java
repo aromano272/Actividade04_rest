@@ -1,10 +1,15 @@
 package com.example.aromano.actividade04;
 
+import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
+
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,10 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
         final EditText et_refeicao = (EditText) findViewById(R.id.et_refeicao);
         final EditText et_bebidas = (EditText) findViewById(R.id.et_bebidas);
-        final EditText et_taxaiva = (EditText) findViewById(R.id.et_taxaiva);
+//        final EditText et_taxaiva = (EditText) findViewById(R.id.et_taxaiva);
+        final RadioButton rb_iva13 = (RadioButton) findViewById(R.id.rb_iva13);
+        final RadioButton rb_iva23 = (RadioButton) findViewById(R.id.rb_iva23);
         final EditText et_numpessoas = (EditText) findViewById(R.id.et_numpessoas);
-        final EditText et_total = (EditText) findViewById(R.id.et_total);
-        final EditText et_totalporpessoa = (EditText) findViewById(R.id.et_totalporpessoa);
+        final TextView et_total = (TextView) findViewById(R.id.tv_total);
+        final TextView et_totalporpessoa = (TextView) findViewById(R.id.tv_totalporpessoa);
         final Button btn_calcular = (Button) findViewById(R.id.btn_calcular);
 
         btn_calcular.setOnClickListener(new View.OnClickListener() {
@@ -30,12 +37,15 @@ public class MainActivity extends AppCompatActivity {
                 float totalporpessoa;
                 float taxaiva;
                 float numpessoas;
-
+                /*
                 try {
                     taxaiva = (Float.parseFloat(et_taxaiva.getText().toString()) / 100) + 1;
                 } catch (Exception ex) {
                     taxaiva = 1.23f;
-                }
+                }*/
+
+                // verificar se o radiobutton de iva 23% esta selecionado
+                taxaiva = (rb_iva23.isChecked() ? 1.23f : 1.13f);
 
                 try {
                     numpessoas = Float.parseFloat(et_numpessoas.getText().toString());
@@ -46,8 +56,22 @@ public class MainActivity extends AppCompatActivity {
                 total = calcularTotal(refeicao, bebidas, taxaiva);
                 totalporpessoa = calcularTotalPorPessoa(refeicao, bebidas, taxaiva, numpessoas);
 
-                et_total.setText(String.valueOf(total));
-                et_totalporpessoa.setText(String.valueOf(totalporpessoa));
+                // fazemos um template para posteriormente poderemos formatar numeros chamando euroTemplate.format(numero)
+                DecimalFormat euroTemplate = new DecimalFormat("#.## EUR");
+                euroTemplate.setMinimumFractionDigits(2);
+
+                et_total.setText(euroTemplate.format((double) total));
+                et_totalporpessoa.setText(euroTemplate.format((double)totalporpessoa));
+
+//                et_total.setText(String.valueOf(total));
+//                et_totalporpessoa.setText(String.valueOf(totalporpessoa));
+
+                // dialog
+                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                dialog.setMessage("Resultado");
+                dialog.setNeutralButton("Total " + String.format("%.2f", total) + " €\nPor Pessoa "
+                        + String.format("%.2f", totalporpessoa) + " €", null);
+                dialog.show();
             }
         });
     }

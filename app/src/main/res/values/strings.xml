@@ -11,6 +11,6 @@
     <string name="tv_numpessoas">Pessoas:</string>
     <string name="hint_numpessoas">Numero de pessoas</string>
     <string name="btn_calcular">Calcular</string>
-    <string name="tv_total">Total:</string>
-    <string name="tv_totalporpessoa">Por pessoa:</string>
+    <string name="tv_total">Total:&#160;</string>
+    <string name="tv_totalporpessoa">Por pessoa:&#160;</string>
 </resources>
