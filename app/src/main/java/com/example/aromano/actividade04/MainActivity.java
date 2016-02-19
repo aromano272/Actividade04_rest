@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -31,21 +32,29 @@ public class MainActivity extends AppCompatActivity {
         btn_calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                float refeicao = Float.parseFloat(et_refeicao.getText().toString());
-                float bebidas = Float.parseFloat(et_bebidas.getText().toString());
+                float refeicao = 0;
+                float bebidas = 0;
                 float total;
                 float totalporpessoa;
                 float taxaiva;
                 float numpessoas;
+
+                try {
+                    refeicao = Float.parseFloat(et_refeicao.getText().toString());
+                    bebidas = Float.parseFloat(et_bebidas.getText().toString());
+                } catch(Exception ex) {
+                    Toast.makeText(MainActivity.this, "Erro de insercao de dados", Toast.LENGTH_LONG).show();
+                }
+
                 /*
                 try {
-                    taxaiva = (Float.parseFloat(et_taxaiva.getText().toString()) / 100) + 1;
+                    taxaiva = (Float.parseFloat(et_taxaiva.getText().toString()) / 100);
                 } catch (Exception ex) {
-                    taxaiva = 1.23f;
+                    taxaiva = 0.23f;
                 }*/
 
                 // verificar se o radiobutton de iva 23% esta selecionado
-                taxaiva = (rb_iva23.isChecked() ? 1.23f : 1.13f);
+                taxaiva = (rb_iva23.isChecked() ? 0.23f : 0.13f);
 
                 try {
                     numpessoas = Float.parseFloat(et_numpessoas.getText().toString());
@@ -77,13 +86,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private float calcularTotal(float refeicao, float bebidas, float taxaiva) {
-        float total = (refeicao + bebidas) * taxaiva;
+        float total = (refeicao + bebidas) * (taxaiva + 1);
 
         return total;
     }
 
     private float calcularTotalPorPessoa(float refeicao, float bebidas, float taxaiva, float numpessoas) {
-        float total = (refeicao + bebidas) * taxaiva;
+        float total = (refeicao + bebidas) * (taxaiva + 1);
         total /= numpessoas;
 
         return total;
